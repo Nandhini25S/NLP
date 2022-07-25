@@ -6,7 +6,7 @@ import os
 
 
 # Load the data
-df = pd.read_json('/media/senju/1.0 TB Hard Disk/NLP/Text_Classification_NLP/data/tweets.json')
+df = pd.read_json('/media/senju/1.0 TB Hard Disk/NLP/FastText_Classification/data/tweets.json')
 
 X = df[df.columns.to_list()[0]]
 y = df[df.columns.to_list()[1]]
@@ -22,5 +22,7 @@ classes = { 2: 'Positive',  0 : 'Negative', 1 : 'Neutral'}
 
 del df
 
-np.save("/media/senju/1.0 TB Hard Disk/NLP/Text_Classification_NLP/data/X.npy",X)
-np.save("/media/senju/1.0 TB Hard Disk/NLP/Text_Classification_NLP/data/y.npy",y)
+np.save("/media/senju/1.0 TB Hard Disk/NLP/FastText_Classification/data/X.npy",X)
+print("X.npy saved")
+np.save("/media/senju/1.0 TB Hard Disk/NLP/FastText_Classification/data/y.npy",y)
+print("y.npy saved")
