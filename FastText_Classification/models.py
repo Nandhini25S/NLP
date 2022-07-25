@@ -16,4 +16,7 @@ class LSTM:
         self.patience = patience
     
     def build_model(self):
+        tf.compat.v1.disable_eager_execution()
+        model = Sequential()
+        model.add(Bidirectional(LSTM(128, return_sequences=True), input_shape=self.input_shape))
         pass
