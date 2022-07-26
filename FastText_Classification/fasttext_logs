@@ -1,1 +1,10 @@
 [2022-07-25 22:59:57,779: INFO: gensim_vectorizers]: built word to vector
+[2022-07-26 19:24:12,581: INFO: gensim_vectorizers]: built word to vector
+[2022-07-26 20:12:34,115: INFO: gensim_vectorizers]: built word to vector
+[2022-07-26 20:26:13,053: INFO: gensim_vectorizers]: built word to vector
+[2022-07-26 20:31:52,915: INFO: text]: text Normalise
+[2022-07-26 20:40:39,883: INFO: text]: text to tokenize
+[2022-07-26 20:41:16,685: INFO: text]: text to tokenize
+[2022-07-26 20:52:11,192: INFO: gensim_vectorizers]: built word to vector
+[2022-07-26 20:57:14,500: INFO: gensim_vectorizers]: built word to vector
+[2022-07-26 21:14:35,535: WARNING: functional]: Model was constructed with shape (None, 20, 300) for input KerasTensor(type_spec=TensorSpec(shape=(None, 20, 300), dtype=tf.float32, name='bidirectional_input'), name='bidirectional_input', description="created by layer 'bidirectional_input'"), but it was called on an input with incompatible shape (None, 20).

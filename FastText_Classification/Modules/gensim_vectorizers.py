@@ -8,6 +8,7 @@ import logging
 import os
 
 
+
 logging.basicConfig(
     filename=os.path.join("fasttext_logs", ''), 
     level=logging.INFO, 
@@ -70,11 +71,18 @@ class FastText_vectorize:
 
     def padding_truncate(self,vector_list : list,max_length : int = 100):
         if len(vector_list) > max_length:
-            return np.transpose(vector_list[:max_length])
+            return vector_list[:max_length]
         else:
-            return np.concatenate((vector_list,np.zeros((max_length-len(vector_list),self.dimension)))).T
+            return np.concatenate((vector_list,np.zeros((max_length-len(vector_list),self.dimension))))
     
-    #Thanks
+
+    def padding_truncate_lists(self,vector_list : list,max_length : int = 100):
+        # if vector_list == None:
+        #     return "Empyt or none type can't be processed"
+        return np.array([self.padding_truncate(i,max_length) for i in vector_list])
+        #for numpy array
+
+
 
     
 
