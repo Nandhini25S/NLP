@@ -3,3 +3,4 @@ Corona_NLP_train.csv
 tweets.json
 X.npy
 y.npy
+X_vec.npy
