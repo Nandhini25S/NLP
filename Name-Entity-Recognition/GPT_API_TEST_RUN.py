@@ -1,7 +1,7 @@
 import os
 import sys
 
-with open("api.txt", "r") as f:
+with open("Name-Entity-Recognition/api.txt", "r") as f:
     api_key = f.read()
 # print(api_key)
 
