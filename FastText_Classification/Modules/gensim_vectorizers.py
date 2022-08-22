@@ -71,9 +71,9 @@ class FastText_vectorize:
 
     def padding_truncate(self,vector_list : list,max_length : int = 100):
         if len(vector_list) > max_length:
-            return vector_list[:max_length]
+            return vector_list[:max_length].tolist()
         else:
-            return np.concatenate((vector_list,np.zeros((max_length-len(vector_list),self.dimension))))
+            return np.concatenate((vector_list,np.zeros((max_length-len(vector_list),self.dimension)))).tolist()
     
 
     def padding_truncate_lists(self,vector_list : list,max_length : int = 100):
