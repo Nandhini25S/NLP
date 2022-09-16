@@ -116,6 +116,17 @@ Bert (Attention based models)
 
 ## Attention is All you need : )
 
+### Transformer Architecture
+
+from packt publication and by refering two to three articles i have created this architecture
+
+the attention is all you need is an article, written by [Google Brain](https://research.google/teams/brain/) and Google researchers [Ashish Vaswani](https://twitter.com/ashishvaswani), [Noam Shazeer](https://twitter.com/nshazeer), [Niki Parmar](https://twitter.com/nikisparmar), [Jakob Uszkoreit](https://twitter.com/jakobuszkoreit), [Llion Jones](https://twitter.com/llionjones), [Aidan N Gomez](https://twitter.com/aidangomez), [Lukasz Kaiser](https://twitter.com/lukaszkaiser), [Illia Polosukhin](https://twitter.com/illyap) in 2017. The paper is available on [arXiv](https://arxiv.org/abs/1706.03762) and [GitHub](
+[!Attention is all you need](https://arxiv.org/abs/1706.03762)
+
+this transformer outperformed other transformer architecture so the point here is how important the attention is in the transformer architecture. Transformer is the key component of NLP and it is used in many NLP tasks like text classification, text summarization, text generation, machine translation, etc.
+
+<!-- next page generation -->
+
 
 
 
