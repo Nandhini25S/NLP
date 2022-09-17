@@ -125,9 +125,9 @@ the attention is all you need is an article, written by [Google Brain](https://r
 
 this transformer outperformed other transformer architecture so the point here is how important the attention is in the transformer architecture. Transformer is the key component of NLP and it is used in many NLP tasks like text classification, text summarization, text generation, machine translation, etc.
 
-<!-- next page generation -->
-
-
+## 1) Transformer Architecture
+<!-- insert image -->
+<img src = 'https://imgs.search.brave.com/9siRrM0u4OXw2mkcKMVLcVLgTQGGysSRy9-nd00Wtww/rs:fit:626:575:1/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/bWF4LzEyNTIvMSpK/dUdaYVpjUnRtcnRD/RVBZOHFmc1V3LnBu/Zw'>
 
 
 
