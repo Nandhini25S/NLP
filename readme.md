@@ -127,4 +127,22 @@ this transformer outperformed other transformer architecture so the point here i
 
 ## 1) Transformer Architecture
 <!-- insert image -->
-<img src = 'https://imgs.search.brave.com/9siRrM0u4OXw2mkcKMVLcVLgTQGGysSRy9-nd00Wtww/rs:fit:626:575:1/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/bWF4LzEyNTIvMSpK/dUdaYVpjUnRtcnRD/RVBZOHFmc1V3LnBu/Zw'>    
+<img src = 'https://imgs.search.brave.com/9siRrM0u4OXw2mkcKMVLcVLgTQGGysSRy9-nd00Wtww/rs:fit:626:575:1/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/bWF4LzEyNTIvMSpK/dUdaYVpjUnRtcnRD/RVBZOHFmc1V3LnBu/Zw'>
+
+transformer provided lot of improvements over the RNNs and CNNs. The transformer architecture is based on the attention mechanism. The attention mechanism is used to focus on the important parts of the input sequence. The attention mechanism is used to calculate the context vector. The context vector is used to calculate the output of the transformer. The transformer architecture is used in many NLP tasks like text classification, text summarization, text generation, machine translation, etc. okay !! blah blah blah !! very confusing right !! !! consider the following example to understand the transformer architecture.
+
+consider a sentence, 
+
+    English : cat is on the mat 
+
+
+to transformer the above sentence into another language(Machine Translation)
+
+    Tamil : Pūṉai pāyil uḷḷatu
+
+Transformer has 2 main blocks Encoder block 
+
+    Encoder block : Encoder block is used to encode the input sequence. The encoder block is used to calculate the context vector. The context vector is used to calculate the output of the transformer.
+    
+
+    Decoder block : Decoder block is used to decode the context vector. The decoder block is used to calculate the output of the transformer.
