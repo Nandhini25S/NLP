@@ -146,3 +146,61 @@ Transformer has 2 main blocks Encoder block
     
 
     Decoder block : Decoder block is used to decode the context vector. The decoder block is used to calculate the output of the transformer.
+
+Deep learning framework like PyTorch and TensorFlow is used to implement the transformation model. Even in Computer Vision Transformer architecture is used to outperform CNNs. We reproduce Transformer architecture with different deep learning frameworks and achieve higher accuracy on the classification task.
+According to Jay Alammar's blog, transformer has six main components, i will explain each one of them below and i also referred to Narrated transformers video from Jay Alammar.
+
+before that let's see encoder and decoder stacks
+Encoder and Decoder stacks : 
+
+    Encoder : Encoder receives input and calculate context vector
+    Decoder : Decoder receives context vector and gives output based on that vector
+    Encoder and Decoder are stacks of encoders and decoders with the same parameters
+
+Examples of Decoder stakcs
+    
+    GPT model (dialog human chat dataset, web scraping data, language modeling)
+    GPT-2 model (dialog human chat dataset)
+    GPT3.ai model (dialog human chat dataset, web scraping data, language modeling)
+
+GPT - 2 (openAI transformers) Huge Language Model which is trained  on  the web scraping data. with 36 blocks in each stack.
+
+Examples of Encoder Stacks
+
+    BERT Models ( classification, another NLP task)
+    Bart Models ( chat bot trained on publicly available chat data like reddit and conversations on product hunt)
+    Longformer ( BERT based models trained on long inputs ( not possible with the BERT))
+    Huge BERT models ( preprocessed text by replacing randomly selected words with [MASK] token and evaluating against the original sentence ) Here we can interpret as [MASK] token as a wildcard.
+    XLNet Models ( models trained with combined objective (self-supervised object), original uncombined objective (Standard BERT) & next sentence prediction task)
+So we got clarity about encoder decoder, Now we reduce complexity of understanding the architecture by simplifying things a little by removing cross-entities and heads parts.
+ ## 1) Self attention
+
+
+## 2) Embedding
+
+The encoder and the decoder contains the embedding layer for embedding the source language and target language respectively.
+
+Token embedding (wte)
+    
+        Token embedding (wte) : Token embedding (wte) is used to embed the word in sequence when the input is a word.(Encoder and Decoder have two wte's).
+
+Positional embedding(wpe)
+
+        Positional embedding(wpe) : Positional embedding(Wpe) is used to account for position in the sentence. The positional code(PE) is combined with the word embedding to produce the input word embedding vector.
+
+        The Shawshank Redemption
+        Produces an input embedding like below
+        The Shawshank Redemption
+    
+        [[0.0522, 0.0178, 0.1694, ..., 0.0180, 0.0160, 0.0009],
+         [0.1550, 0.1047, 0.0322, ..., 0.0555, 0.1045, 0.1085],
+         [0.0610, 0.1158, 0.1463, ..., 0.1514, 0.0923, 0.0226],
+         ...,
+         [0.0114, 0.0556, 0.1169, ..., 0.1206, 0.0352, 0.0727],
+         [0.0807, 0.0148, 0.1736, ..., 0.0337, 0.1697, 0.0101],
+         [0.0308, 0.1114, 0.0200, ..., 0.1536, 0.1542, 0.1945]]
+
+Each Word (token) gets a unique embedding based on it position relative to other words in the sentence.
+         
+
+## 3) Multi Headed Self-Attention
