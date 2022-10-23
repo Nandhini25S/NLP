@@ -293,3 +293,10 @@ Popular BERT models are
     
 BERT is a deep learning model that uses a technique called bidirectional encoding to read the text input.
 
+###  Introduction to HF Classifier 
+HF Classifier is a simple and easy to use library for text classification.
+HF Classifier is a wrapper around the Hugging Face transformers library.
+
+let's see how to use HF Classifier for text classification with BERT.
+
+
