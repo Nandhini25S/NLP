@@ -89,14 +89,14 @@ testdataloader = CustomDataLoader(
 # Create the DataLoader for our training set.
 train_data_loader = DataLoader(
     dataloader,
-    batch_size = 4,
+    batch_size = 128,
     num_workers = 4,
     shuffle = True,
 )
 
 test_data_loader = DataLoader(
     testdataloader,
-    batch_size = 4,
+    batch_size = 128,
     num_workers = 4
 )
 
@@ -134,10 +134,7 @@ y_true = []
 for batch in test_data_loader:
     outputs = model(**batch)
     y_pred.extend(torch.argmax(outputs.logits, dim = 1).tolist())
-    y_true.extend(batch['targets'].tolist())
-
-        
+    y_true.extend(batch['labels'].tolist())
 
 
-
-
+torch.save(model, 'hfclassifier/model/model.pt')
