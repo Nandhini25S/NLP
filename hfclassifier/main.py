@@ -4,17 +4,18 @@ import pandas as pd
 import torch
 from sklearn.preprocessing import LabelEncoder
 from vocably.preprocessing.text import Preprocessor as pp
-# from hfclassifier.dataloader import CustomDataLoader as DL
-# from hfclassifier.dataloader import Tokenizer as TK
 from torch.utils.data import DataLoader 
 from transformers import BertTokenizer, AutoModelForSequenceClassification
 from sklearn.model_selection import train_test_split
 from rich.progress import track
 torch.set_grad_enabled(True)
+from rich import print as rprint
+# torch.multiprocessing.set_start_method('spawn')
 
 # device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-device = "cpu"
-print(device)
+device = "cuda" if torch.cuda.is_available() else "cpu"
+NUM_WORKERS = 4 if device == 'cpu' else 0
+rprint(f'Using device ..{device}')
 
 # Tokenize input
 class CustomDataLoader(torch.utils.data.Dataset):
@@ -46,7 +47,7 @@ class Tokenizer(object):
 
 
 # load imdb dataset
-data = pd.read_csv('hfclassifier/data/IMDB Dataset.csv', nrows=1000)
+data = pd.read_csv('hfclassifier/data/IMDB Dataset.csv')
 # print(data['sentiment'].value_counts())
 
 # Let's encode the target first
@@ -89,20 +90,21 @@ testdataloader = CustomDataLoader(
 # Create the DataLoader for our training set.
 train_data_loader = DataLoader(
     dataloader,
-    batch_size = 128,
-    num_workers = 4,
+    batch_size = 16,
+    num_workers = NUM_WORKERS,
     shuffle = True,
 )
 
 test_data_loader = DataLoader(
     testdataloader,
-    batch_size = 128,
-    num_workers = 4
+    batch_size = 16,
+    num_workers = NUM_WORKERS
 )
 
 # Load pre-trained model (weights)
 model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased',num_labels = 2)
 model.to(device)
+
 # Freeze model weights
 for param in model.parameters():
     param.requires_grad = False
