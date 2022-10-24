@@ -12,7 +12,8 @@ from sklearn.model_selection import train_test_split
 from rich.progress import track
 torch.set_grad_enabled(True)
 
-device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+# device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+device = "cpu"
 print(device)
 
 # Tokenize input
@@ -27,8 +28,8 @@ class CustomDataLoader(torch.utils.data.Dataset):
         return len(self.reviews)
 
     def __getitem__(self, item):
-        data = {key: torch.tensor(val) for key, val in self.reviews[item].items()}
-        data['labels'] = torch.tensor(self.targets[item])
+        data = {key: torch.tensor(val).to(device) for key, val in self.reviews[item].items()}
+        data['labels'] = torch.tensor(self.targets[item]).to(device)
 
         return data
 
