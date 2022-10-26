@@ -6,48 +6,23 @@ from sklearn.preprocessing import LabelEncoder
 from vocably.preprocessing.text import Preprocessor as pp
 from torch.utils.data import DataLoader 
 from transformers import BertTokenizer, AutoModelForSequenceClassification
+from dataloader import CustomDataLoader, Tokenizer
 from sklearn.model_selection import train_test_split
 from rich.progress import track
 torch.set_grad_enabled(True)
 from rich import print as rprint
 # torch.multiprocessing.set_start_method('spawn')
 
-# device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+# device = "cuda" if torch.cuda.is_available() else "cpu"
 NUM_WORKERS = 4 if device == 'cpu' else 0
 rprint(f'Using device ..{device}')
 
-# Tokenize input
-class CustomDataLoader(torch.utils.data.Dataset):
-    def __init__(self, reviews, targets, tokenizer, max_len):
-        self.reviews = reviews
-        self.targets = targets
-        self.tokenizer = tokenizer
-        self.max_len = max_len
 
-    def __len__(self):
-        return len(self.reviews)
-
-    def __getitem__(self, item):
-        data = {key: torch.tensor(val).to(device) for key, val in self.reviews[item].items()}
-        data['labels'] = torch.tensor(self.targets[item]).to(device)
-
-        return data
-
-
-class Tokenizer(object):
-    def __init__(self):
-        pass
-        
-    def build_tokenizer(self, tokenizer):
-        self.tokenizer = tokenizer
-    
-    def get_tokens(self, text):
-        return self.tokenizer(text, padding='max_length', truncation=True, max_length=512)
 
 
 # load imdb dataset
-data = pd.read_csv('hfclassifier/data/IMDB Dataset.csv')
+data = pd.read_csv('hfclassifier/data/IMDB Dataset.csv', nrows=20)
 # print(data['sentiment'].value_counts())
 
 # Let's encode the target first
@@ -76,7 +51,8 @@ dataloader = CustomDataLoader(
     reviews = Xtrain.to_numpy(),
     targets = ytrain,
     tokenizer = tokenizer,
-    max_len = 512
+    max_len = 512,
+    device = device
 )
 
 testdataloader = CustomDataLoader(
