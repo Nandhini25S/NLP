@@ -25,7 +25,7 @@ rprint(f'Using device ..{device}')
 
 
 # load imdb dataset
-data = pd.read_csv('hfclassifier/data/IMDB Dataset.csv', nrows=20)
+data = pd.read_csv('hfclassifier/data/IMDB Dataset.csv')
 # print(data['sentiment'].value_counts())
 
 # Let's encode the target first
@@ -120,3 +120,6 @@ for batch in test_data_loader:
 
 
 torch.save(model, 'hfclassifier/model/model.pt')
+
+from sklearn.metrics import accuracy_score
+print(f'Accuracy: {accuracy_score(y_true, y_pred)}')
