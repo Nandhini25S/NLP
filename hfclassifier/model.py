@@ -7,7 +7,7 @@ torch.manual_seed(RANDOM_SEED)
 DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 print(DEVICE)
 
-model = torch.load('hfclassifier/model.pt')
+model = torch.load('hfclassifier/model/model.pt')
 model.to(DEVICE)
 
 

@@ -12,9 +12,12 @@ from rich.progress import track
 torch.set_grad_enabled(True)
 from rich import print as rprint
 # torch.multiprocessing.set_start_method('spawn')
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] ='0'
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 # device = "cuda" if torch.cuda.is_available() else "cpu"
+device = 'cuda'
 NUM_WORKERS = 4 if device == 'cpu' else 0
 rprint(f'Using device ..{device}')
 
@@ -59,7 +62,8 @@ testdataloader = CustomDataLoader(
     reviews= Xtest.to_numpy(),
     targets = ytest,
     tokenizer = tokenizer,
-    max_len = 512
+    max_len = 512,
+    device = device
 )
 
 
@@ -94,7 +98,7 @@ model.train()
 
 optimizer = torch.optim.Adam(model.parameters(), lr = 1e-3)
 
-epochs = 10
+epochs = 5
 for epoch in range(epochs):
     for batch in track(train_data_loader, description = 'Training...', total = len(train_data_loader)):
         optimizer.zero_grad()
