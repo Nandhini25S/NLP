@@ -2,3 +2,4 @@
 hf-classifier/Bert - Sentiment.ipynb
 hfclassifier/data/models
 hfclassifier/__pycache__
+hfclassifier/model/model.pt
