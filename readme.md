@@ -173,11 +173,16 @@ Examples of Encoder Stacks
     Huge BERT models ( preprocessed text by replacing randomly selected words with [MASK] token and evaluating against the original sentence ) Here we can interpret as [MASK] token as a wildcard.
     XLNet Models ( models trained with combined objective (self-supervised object), original uncombined objective (Standard BERT) & next sentence prediction task)
 So we got clarity about encoder decoder, Now we reduce complexity of understanding the architecture by simplifying things a little by removing cross-entities and heads parts.
-Read blog [!here](https://towardsdatascience.com/what-is-an-encoder-decoder-model-86b3d57c5e1a#:~:text=Encoder%20decoder%20models%20allow%20for,This%20also%20works%20with%20videos.)
+Read blog
+
+[!here](https://towardsdatascience.com/what-is-an-encoder-decoder-model-86b3d57c5e1a#:~:text=Encoder%20decoder%20models%20allow%20for,This%20also%20works%20with%20videos.)
+[!here too](https://towardsdatascience.com/transformers-explained-visually-not-just-how-but-why-they-work-so-well-d840bd61a9d3)
 ## Attention Mechanism
 Attention mechanism is used to focus on the important parts of the input sequence.
 In both encoder and decoder, the attention mechanism is used.
+
 <img src = 'https://jalammar.github.io/images/t/Transformer_decoder.png'>
+
 ## 1) Embedding:
 
 The encoder and the decoder contains the embedding layer for embedding the source language and target language respectively.
